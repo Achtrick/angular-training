@@ -24,7 +24,7 @@ app.get("/wishList", (req, res) => {
       res.send(wishs);
     })
     .catch((e) => {
-      req.send("ERROR");
+      res.send("ERROR");
     });
 });
 
@@ -35,10 +35,12 @@ app.post("/createWish", (req, res) => {
     text: text,
   });
 
-  try {
-    newWish.save();
-    res.send({ msg: "SUCCESS" });
-  } catch (error) {
-    res.send("ERROR");
-  }
+  newWish
+    .save()
+    .then((wishs) => {
+      res.send(wishs);
+    })
+    .catch((e) => {
+      res.send("ERROR");
+    });
 });

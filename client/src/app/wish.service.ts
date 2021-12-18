@@ -10,4 +10,8 @@ export class WishService {
   createWish(text: string) {
     return this.webRequestService.post('createWish', { text });
   }
+
+  getWishList() {
+    return this.webRequestService.get('WishList');
+  }
 }

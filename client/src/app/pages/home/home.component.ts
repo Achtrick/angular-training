@@ -7,13 +7,23 @@ import { WishService } from 'src/app/wish.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
+  wishList: any;
+
   constructor(private wishService: WishService) {}
 
-  ngOnInit(): void {}
+  ngOnInit() {
+    this.wishService.getWishList().subscribe((wishList: any) => {
+      this.wishList = wishList;
+    });
+  }
 
-  createNewWish() {
-    this.wishService.createWish('testing').subscribe((res: any) => {
-      console.log(res);
+  createNewWish(text: string) {
+    this.wishService.createWish(text).subscribe((res: any) => {
+      if (res === 'ERROR') {
+        alert('ERROR !');
+      } else {
+        this.wishList.push(res);
+      }
     });
   }
 }

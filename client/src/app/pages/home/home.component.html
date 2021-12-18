@@ -1,26 +1,39 @@
 <div class="container">
-  <div class="row">
+  <br />
+  <br />
+  <br />
+  <br />
+  <div class="card">
+    <h1
+      style="color: rgb(255, 255, 255); text-shadow: 2px 2px #000000"
+      align="center"
+    >
+      Wish List
+    </h1>
     <br />
+    <div class="input-group mb-3">
+      <input #textInput type="text" class="form-control" />
+      <div class="input-group-append">
+        <button class="defaultbtn" (click)="createNewWish(textInput.value)">
+          <h6>Create</h6>
+        </button>
+      </div>
+    </div>
     <br />
-    <br />
-    <br />
-    <div class="card">
-      <h1>Wish List</h1>
-      <br />
-      <form>
-        <div class="input-group mb-3">
-          <input type="text" class="form-control" />
-          <div class="input-group-append">
-            <div class="btn btn-outline-success" (click)="createNewWish()">
-              Create
-            </div>
+    <div class="row">
+      <div class="col-1"></div>
+      <div class="col-10">
+        <div class="wish" *ngFor="let wish of wishList">
+          <div>
+            <h4>{{ wish.text }}</h4>
+          </div>
+          <div align="right">
+            <button class="edit"><h5>Edit</h5></button>
+            <button class="delete"><h5>Delete</h5></button>
           </div>
         </div>
-      </form>
-      <ul>
-        <li>Wish 1</li>
-        <li>Wish 2</li>
-      </ul>
+      </div>
+      <div class="col-1"></div>
     </div>
   </div>
 </div>
