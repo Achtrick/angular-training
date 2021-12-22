@@ -3,15 +3,20 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const { wish } = require("./database/models/wish.model");
 const { mongoose } = require("./database/mongoose");
+const port = process.env.PORT || 3001;
 
 app = express();
-app.listen(3001, () => {
-  console.log("Running on port 3001");
+app.listen(port, () => {
+  console.log(`Running on port ${port}`);
+});
+app.get("/", (req, res) => {
+  res.send(`Running on port ${port} On heroku server !`);
 });
 app.use(
   cors({
-    origin: ["http://localhost:4200"],
+    origin: ["http://localhost:4200", "https://wishs-book.web.app"],
     methods: ["POST", "GET", "PUT", "DELETE"],
+    credentials: true,
   })
 );
 app.use(express.json());
