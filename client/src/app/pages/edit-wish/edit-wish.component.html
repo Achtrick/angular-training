@@ -3,48 +3,52 @@
   <br />
   <br />
   <br />
+  <br />
+  <br />
+  <br /><button
+    routerLink="/"
+    style="width: 110px; padding: 10px; margin: 10px"
+    class="btnWhite"
+  >
+    <h6><i class="fas fa-arrow-circle-left"></i>&nbsp;Go back</h6>
+  </button>
   <div class="card">
     <h1
       style="color: rgb(255, 255, 255); text-shadow: 2px 2px #000000"
       align="center"
     >
-      Wish List
+      Edit Wish
     </h1>
     <br />
     <div class="input-group mb-3">
       <input
-        id="text"
         #textInput
         type="text"
         class="form-control"
-        placeholder="Your wish ..."
+        placeholder="New wish ..."
       />
       <div class="input-group-append">
-        <button
-          class="btn btn-success"
-          (click)="createNewWish(textInput.value)"
-        >
-          <h6>Create</h6>
+        <button class="btn btn-success" (click)="editWish(textInput.value)">
+          <h6>Confirm</h6>
         </button>
       </div>
     </div>
     <br />
+    <br />
+    <br />
     <div class="row">
       <div class="col-1"></div>
       <div class="col-10">
-        <div class="wish" *ngFor="let wish of wishList">
-          <h4>{{ wish.text }}</h4>
-          <div align="right">
-            <button class="edit" [routerLink]="['/editwish', wish._id]">
-              <h5>Edit</h5>
-            </button>
-            <button class="delete" (click)="deleteWish(wish._id)">
-              <h5>Delete</h5>
-            </button>
+        <div class="editWish">
+          <div>
+            <h3>{{ text }}</h3>
           </div>
         </div>
       </div>
       <div class="col-1"></div>
     </div>
+    <br />
+    <br />
+    <br />
   </div>
 </div>

@@ -14,4 +14,16 @@ export class WishService {
   getWishList() {
     return this.webRequestService.get('WishList');
   }
+
+  getWish(_id: any) {
+    return this.webRequestService.post('Wish', { _id });
+  }
+
+  editWish(_id: any, text: string) {
+    return this.webRequestService.put('editWish', { _id, text });
+  }
+
+  deleteWish(_id: any) {
+    return this.webRequestService.post('deleteWish', { _id });
+  }
 }

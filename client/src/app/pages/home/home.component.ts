@@ -19,10 +19,20 @@ export class HomeComponent implements OnInit {
 
   createNewWish(text: string) {
     this.wishService.createWish(text).subscribe((res: any) => {
-      if (res === 'ERROR') {
+      if (res.msg === 'ERROR') {
         alert('ERROR !');
       } else {
         this.wishList.push(res);
+      }
+    });
+  }
+
+  deleteWish(_id: any) {
+    this.wishService.deleteWish(_id).subscribe((res: any) => {
+      if (res.msg === 'ERROR') {
+        alert('ERROR !');
+      } else {
+        this.wishList = res;
       }
     });
   }

@@ -23,7 +23,7 @@ export class WebRequestService {
     return this.http.put(`${this.ROOT_URL}/${uri}`, payload);
   }
 
-  delete(uri: string) {
-    return this.http.delete(`${this.ROOT_URL}/${uri}`);
+  delete(uri: string, payload: Object) {
+    return this.http.delete(`${this.ROOT_URL}/${uri}`, payload);
   }
 }
